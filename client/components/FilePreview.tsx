@@ -22,22 +22,22 @@ export default function FilePreview({ file, onClose }: FilePreviewProps) {
   const isPDF = file.type === 'application/pdf';
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
-      <div className="bg-white rounded-lg w-full max-w-4xl mx-4 relative">
-        <div className="flex items-center justify-between p-4 border-b">
-          <h3 className="text-lg font-medium">{file.name}</h3>
+    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
+      <div className="bg-white dark:bg-gray-900 rounded-lg w-full max-w-4xl mx-4 relative">
+        <div className="flex items-center justify-between p-4 border-b dark:border-gray-800">
+          <h3 className="text-lg font-medium dark:text-gray-100">{file.name}</h3>
           <div className="flex items-center space-x-2">
             <button
               onClick={() => window.open(file.path, '_blank')}
-              className="p-2 hover:bg-gray-100 rounded-full"
+              className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full"
             >
-              <Download className="h-5 w-5" />
+              <Download className="h-5 w-5 dark:text-gray-400" />
             </button>
             <button
               onClick={onClose}
-              className="p-2 hover:bg-gray-100 rounded-full"
+              className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full"
             >
-              <X className="h-5 w-5" />
+              <X className="h-5 w-5 dark:text-gray-400" />
             </button>
           </div>
         </div>
@@ -46,7 +46,7 @@ export default function FilePreview({ file, onClose }: FilePreviewProps) {
             <PDFViewer file={file} />
           ) : (
             <div className="flex items-center justify-center h-96">
-              <p>Preview not available</p>
+              <p className="dark:text-gray-400">Preview not available</p>
             </div>
           )}
         </div>
